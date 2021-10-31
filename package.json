@@ -7,19 +7,21 @@
     "eject": "react-scripts eject",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "sort-package-json": "sort-package-json 'package.json'",
+    "sort-package-json": "npx sort-package-json 'package.json'",
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "fmt": "eslint --fix '**/*.{js,jsx,ts,tsx}' && prettier --write '**/*.{js,jsx,ts,tsx,css,scss}'"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{css,less,sass,scss}": [
-      "stylelint --fix"
+    "src/**": [
+      "yarn fmt"
     ]
   },
+  "eslintIgnore": [
+    "node_modules",
+    ".eslintrc.js",
+    "**/.gitkeep"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -32,12 +34,6 @@
       "last 1 safari version"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -46,20 +42,21 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "firebase": "^9.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "recoil": "^0.4.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.26.1",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "node-sass": "5.0.0",
-    "prettier": "^2.4.1",
-    "sort-package-json": "^1.52.0",
-    "stylelint": "^14.0.1"
+    "prettier": "^2.4.1"
   }
 }
