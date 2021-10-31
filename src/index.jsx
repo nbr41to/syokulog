@@ -8,3 +8,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
+/* このファイルは原則編集しない */
