@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div className={styles.home}>
       <h1>ここはHomeだよ</h1>
@@ -8,4 +8,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

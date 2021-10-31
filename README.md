@@ -4,10 +4,25 @@
 
 ## Setup
 
+```sh
+git clone
+```
+
+```sh
+yarn install
+```
+
+```sh
+yarn start
+```
+
+開発の手順は[こちら](https://nobco.notion.site/Policy-bc6e5774b16e42be895cc72164b9acbb)を参考
+
 ## 開発の簡単なルール
 
 命名規則...camelCase
 import/export...named import/export
+デザイン...**いい感じ**にする
 
 ## Extra mission
 

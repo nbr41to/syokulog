@@ -1,11 +1,41 @@
-.layout {
+.wrapper {
   min-height: 100vh;
+  background-color: antiquewhite;
+  position: relative;
 }
 
 .header {
   background-color: tomato;
-  &__app_logo {
-    font-size: 40px;
-    color: azure;
+  text-align: center;
+  padding: 8px;
+  &__text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+  }
+  &__subtext {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+}
+
+.main {
+  padding: 16px;
+}
+
+.footer {
+  width: 374px;
+  position: absolute;
+  bottom: 0;
+
+  background-color: tomato;
+  text-align: center;
+  padding: 8px;
+
+  &__text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
   }
 }
