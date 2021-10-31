@@ -13,6 +13,10 @@ yarn install
 ```
 
 ```sh
+cp .env.sample .env.local
+```
+
+```sh
 yarn start
 ```
 
@@ -21,7 +25,9 @@ yarn start
 ## 開発の簡単なルール
 
 命名規則...camelCase
+
 import/export...named import/export
+
 デザイン...**いい感じ**にする
 
 ## Extra mission
