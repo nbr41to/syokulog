@@ -1,0 +1,11 @@
+.layout {
+  min-height: 100vh;
+}
+
+.header {
+  background-color: tomato;
+  &__app_logo {
+    font-size: 40px;
+    color: azure;
+  }
+}
