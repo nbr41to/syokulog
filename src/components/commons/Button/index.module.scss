@@ -1,0 +1,13 @@
+.button {
+  font-weight: 700;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 16px;
+  &:active {
+    background-color: #444;
+    color: #fff;
+  }
+}

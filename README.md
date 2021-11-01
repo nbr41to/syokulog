@@ -20,6 +20,12 @@ cp .env.sample .env.local
 yarn start
 ```
 
+storybook の起動
+
+```sh
+yarn storybook
+```
+
 開発の手順は[こちら](https://nobco.notion.site/Policy-bc6e5774b16e42be895cc72164b9acbb)を参考
 
 ## 開発の簡単なルール
