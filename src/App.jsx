@@ -12,7 +12,7 @@ const App = () => {
         {/* Q)Switchの必要性とは？ */}
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/posts" exact component={FoodPostsPage} />
+          <Route path="/foods/posts" exact component={FoodPostsPage} />
           <Route path="/users" render={() => <>user page だよ</>} />
           <Route render={() => <>そのページはありません🥺</>} />
         </Switch>
