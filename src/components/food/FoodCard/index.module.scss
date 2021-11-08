@@ -1,5 +1,14 @@
-.wrapper {
+.card {
   padding: 12px;
+  margin: 12px 0;
   border: 1px solid #444;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  &__image_wrapper {
+    margin-right: 8px;
+    img {
+      border-radius: 50%;
+    }
+  }
 }
