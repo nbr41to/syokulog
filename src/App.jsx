@@ -2,7 +2,7 @@
 import './styles/global.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './components/pages/Home';
-import PostsPage from './components/pages/Posts';
+import FoodPostsPage from './components/pages/FoodPosts';
 import { Layout } from './components/layout';
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
         {/* Q)Switchの必要性とは？ */}
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/posts" exact component={PostsPage} />
+          <Route path="/posts" exact component={FoodPostsPage} />
           <Route path="/users" render={() => <>user page だよ</>} />
           <Route render={() => <>そのページはありません🥺</>} />
         </Switch>
