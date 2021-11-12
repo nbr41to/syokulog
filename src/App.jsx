@@ -5,6 +5,7 @@ import HomePage from './components/pages/Home';
 import FoodPostsPage from './components/pages/FoodPosts';
 import { Layout } from './components/layout';
 import IngredientPostsPage from './components/pages/IngredientPosts';
+import Login from './components/pages/Login';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         {/* Q)Switchの必要性とは？ */}
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/login" exact component={Login} />
           <Route path="/foods/posts" exact component={FoodPostsPage} />
           <Route
             path="/foods/ingredients"
