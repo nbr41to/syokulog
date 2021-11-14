@@ -1,0 +1,184 @@
+$primaryGray: #f8f8f8;
+
+.pageWrap {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 120%;
+}
+
+/******* 画像アップロード  *******/
+Section.photoUploadSection {
+  background: $primaryGray;
+  text-align: center;
+  padding: 13px 0;
+  & div:first-child {
+    width: 60 px;
+    height: 47 px;
+    margin: auto;
+  }
+  & h2 {
+    font-size: 18px;
+    font-weight: normal;
+  }
+  & span {
+    font-size: 12px;
+  }
+}
+
+Section.recipeFormSection {
+  padding: 13px 0;
+  background-color: #fff;
+  margin: auto;
+  & label {
+    white-space: nowrap;
+    margin: 10px 0;
+  }
+  & input,
+  & textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background: $primaryGray;
+    border: none;
+    border-color: $primaryGray;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+    & ::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+      margin: 0px 10px;
+      font-size: 18px;
+    }
+  }
+  & textarea {
+    height: 145px;
+  }
+  & button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .emptySpace {
+    background-color: $primaryGray;
+    height: 28px;
+  }
+
+  /****** タイトル、詳細 ********/
+  > .basicInfoArea {
+    display: flex;
+    flex-direction: column;
+    > div:first-of-type {
+      padding: 13px 10px;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+      & div {
+        display: flex;
+        justify-content: space-between;
+        & label {
+          margin-left: 0.5rem;
+        }
+        & input {
+          width: 187px;
+        }
+      }
+    }
+  }
+
+  /******* 材料  ********/
+  > .ingredientArea {
+    > div:first-of-type {
+      padding: 11px 0;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+      & .ingredient {
+        display: block;
+        margin-bottom: 8px;
+        margin-left: 0.5rem;
+      }
+      & .ingredientItem {
+        display: flex;
+        justify-content: center;
+        margin: 0 0.5rem;
+        & img {
+          cursor: pointer;
+        }
+      }
+      & button {
+        display: flex;
+        margin: 17px auto 0 auto;
+      }
+    }
+  }
+
+  /******* 手順 ********/
+  > .stepArea {
+    > div:first-of-type {
+      padding: 11px 0;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+      & .step {
+        display: block;
+        margin-bottom: 8px;
+        margin-left: 0.5rem;
+      }
+      & .stepItem {
+        display: flex;
+        justify-content: center;
+        margin-left: 0.5rem;
+        & div {
+          padding-top: 5px;
+          & span {
+            position: relative;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            font-size: 15px;
+            color: black;
+            &::before {
+              content: '';
+              position: absolute;
+              top: 5%;
+              left: 20%;
+              border: 1px solid;
+              border-radius: 50%;
+              box-sizing: border-box;
+              height: 20px;
+              width: 20px;
+            }
+          }
+          & img {
+            cursor: pointer;
+          }
+        }
+        & textarea {
+          width: 268.6px;
+          height: 91px;
+        }
+      }
+      & button {
+        display: flex;
+        margin: 17px auto 0 auto;
+      }
+    }
+  }
+
+  /******* 投稿ボタン  *******/
+  > .postButtonArea {
+    display: flex;
+    justify-content: center;
+    background-color: $primaryGray;
+    padding-bottom: 150px;
+    & button {
+      padding: 7px 10px 10px 10px;
+      width: 84px;
+      height: 39px;
+      background: rgba(180, 170, 81, 0.67);
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      font-family: Arial;
+      font-style: normal;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+  }
+}
