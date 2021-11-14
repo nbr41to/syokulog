@@ -1,4 +1,5 @@
 import styles from './index.module.scss';
+import goodButton from 'src/assets/svg/thumb-up2.svg';
 
 export const IngredientDetail = ({ postsData }) => {
   // 価格の配列を作って平均値を算出
@@ -31,10 +32,7 @@ export const IngredientDetail = ({ postsData }) => {
             </div>
             <div>{dateFormatted(data.atDate)}</div>
             <div>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/thumb-up2.svg`}
-                alt="Logo"
-              />
+              <img src={goodButton} alt="Logo" />
             </div>
           </div>
         ))}
