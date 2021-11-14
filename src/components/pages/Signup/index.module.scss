@@ -1,0 +1,115 @@
+.root {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .container {
+    background-color: #fff;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    .icon {
+      width: 118px;
+      height: 121px;
+      border-radius: 50%;
+      margin-top: 40px;
+    }
+    .iconRegistLink {
+      margin: 20px 0;
+      border: none;
+      font-size: 1rem;
+      color: #2c7a7b;
+      text-decoration: underline;
+      background-color: transparent;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .inputContainer {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 80%;
+      border-radius: 8px;
+      border: 1px solid #b7b7a4;
+      opacity: 0.7;
+      &:focus-within {
+        opacity: 1;
+        transition: all 0.3s;
+      }
+
+      .topInput {
+        width: 90%;
+        padding: 15px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid lightgray;
+        outline: none;
+      }
+      .middleInput {
+        width: 90%;
+        padding: 15px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid lightgray;
+        outline: none;
+      }
+      .bottomInput {
+        width: 90%;
+        padding: 15px;
+        border: none;
+        outline: none;
+      }
+    }
+    .registButton {
+      background-color: #2c7a7b;
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px 30px;
+      border: none;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      margin-top: 50px;
+      font-size: 0.9rem;
+      &:hover {
+        opacity: 0.7;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s;
+      }
+    }
+  }
+  .linkContainer {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    .guideLink {
+      margin: 0%;
+      padding: 0%;
+      font-size: 1rem;
+      text-decoration: underline;
+    }
+    .link {
+      margin: 0%;
+      padding: 0%;
+      border: none;
+      font-size: 1rem;
+      color: #2c7a7b;
+      text-decoration: underline;
+      background-color: transparent;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
