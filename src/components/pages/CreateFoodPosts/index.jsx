@@ -14,7 +14,7 @@ const IngredientItem = ({
       <img src={threeLineImage} />
       <input
         type="text"
-        defaultValue={value}
+        value={value}
         placeholder="牛乳100ml"
         onChange={preserveIngredientsState}
       />
@@ -37,7 +37,7 @@ const StepItem = ({ value, index, deleteStep, preserveStepsState }) => {
         cols="30"
         rows="10"
         placeholder="小麦粉をまぜる"
-        defaultValue={value}
+        value={value}
         onChange={preserveStepsState}
       ></textarea>
       <button onClick={deleteStep}>
