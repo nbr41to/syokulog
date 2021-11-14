@@ -20,11 +20,7 @@ const App = () => {
             exact
             component={IngredientPostsPage}
           />
-          <Route
-            path="/create/recipie/contents"
-            exact
-            component={CreateFoodPostsPage}
-          />
+          <Route path="/foods/new" exact component={CreateFoodPostsPage} />
           <Route path="/users" render={() => <>user page だよ</>} />
           <Route render={() => <>そのページはありません🥺</>} />
         </Switch>
