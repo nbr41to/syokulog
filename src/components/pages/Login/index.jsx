@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const LoginPage = () => {
   const history = useHistory();
 
   const handleGoogleBtnClick = () => {
@@ -34,20 +34,18 @@ const Login = () => {
         <button onClick={handleLoginBtnClick} className={styles.button}>
           ログイン
         </button>
-        <a href="#" className={styles.link}>
-          パスワードを忘れましたか？
-        </a>
-        <div>
-          <span className={styles.dummyLink}>
+        <button className={styles.link}>パスワードを忘れましたか？</button>
+        <div className={styles.linkContainer}>
+          <span className={styles.guideLink}>
             アカウントをまだ持っていませんか？
           </span>
-          <a onClick={handleSignupClick} className={styles.link}>
+          <button onClick={handleSignupClick} className={styles.link}>
             サインアップ
-          </a>
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;
