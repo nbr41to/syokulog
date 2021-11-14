@@ -4,19 +4,28 @@ import cameraImage from '../../../assets/svg/camera.svg';
 import threeLineImage from '../../../assets/svg/three-line.svg';
 import formDeleteImage from '../../../assets/svg/form-delete.svg';
 
-const IngredientItem = ({ value, index, deleteIngredient }) => {
+const IngredientItem = ({
+  value,
+  deleteIngredient,
+  preserveIngredientsState,
+}) => {
   return (
     <div className={styles.ingredientItem}>
       <img src={threeLineImage} />
-      <input type="text" defaultValue={value} placeholder="牛乳100ml" />
-      <button onClick={() => deleteIngredient(index)}>
+      <input
+        type="text"
+        defaultValue={value}
+        placeholder="牛乳100ml"
+        onChange={preserveIngredientsState}
+      />
+      <button onClick={deleteIngredient}>
         <img src={formDeleteImage} />
       </button>
     </div>
   );
 };
 
-const StepItem = ({ value, index, deleteStep }) => {
+const StepItem = ({ value, index, deleteStep, preserveStepsState }) => {
   return (
     <div className={styles.stepItem}>
       <div>
@@ -29,8 +38,9 @@ const StepItem = ({ value, index, deleteStep }) => {
         rows="10"
         placeholder="小麦粉をまぜる"
         defaultValue={value}
+        onChange={preserveStepsState}
       ></textarea>
-      <button onClick={() => deleteStep(index)}>
+      <button onClick={deleteStep}>
         <img src={formDeleteImage} />
       </button>
     </div>
@@ -38,27 +48,24 @@ const StepItem = ({ value, index, deleteStep }) => {
 };
 
 const CreateFoodPosts = () => {
-  const [ingredients, setIngredient] = useState(['', '', '']);
-  const [steps, setStep] = useState(['', '']);
+  const [ingredients, setIngredients] = useState(['', '', '']);
+  const [steps, setSteps] = useState(['', '', '', '']);
 
-  const addIngredient = () => {
-    setIngredient([...ingredients, '']);
+  const addState = (state, setStateAction) => {
+    const newState = [...state, ''];
+    setStateAction(newState);
   };
 
-  const deleteIngredient = (stepNumber) => {
-    const copiedIngredients = [...ingredients];
-    copiedIngredients.splice(stepNumber, 1);
-    setIngredient(copiedIngredients);
+  const deleteState = (index, state, setStateAction) => {
+    const copiedState = [...state];
+    copiedState.splice(index, 1);
+    setStateAction(copiedState);
   };
 
-  const addStep = () => {
-    setStep([...steps, '']);
-  };
-
-  const deleteStep = (index) => {
-    const copiedSteps = [...steps];
-    copiedSteps.splice(index, 1);
-    setStep(copiedSteps);
+  const preserveChangedState = (e, index, state, setStateAction) => {
+    const copiedState = [...state];
+    copiedState[index] = e.target.value;
+    setStateAction(copiedState);
   };
 
   return (
@@ -99,14 +106,20 @@ const CreateFoodPosts = () => {
               return (
                 <IngredientItem
                   key={index}
-                  index={index}
                   value={ingredient}
-                  deleteIngredient={deleteIngredient}
+                  deleteIngredient={() =>
+                    deleteState(index, ingredients, setIngredients)
+                  }
+                  preserveIngredientsState={(e) =>
+                    preserveChangedState(e, index, ingredients, setIngredients)
+                  }
                 />
               );
             })}
             <div>
-              <button onClick={addIngredient}>＋ 食材を追加する</button>
+              <button onClick={() => addState(ingredients, setIngredients)}>
+                ＋ 食材を追加する
+              </button>
             </div>
           </div>
           <div className={styles.emptySpace}></div>
@@ -121,11 +134,16 @@ const CreateFoodPosts = () => {
                   key={index}
                   index={index}
                   value={step}
-                  deleteStep={deleteStep}
+                  deleteStep={() => deleteState(index, steps, setSteps)}
+                  preserveStepsState={(e) =>
+                    preserveChangedState(e, index, steps, setSteps)
+                  }
                 />
               );
             })}
-            <button onClick={addStep}>＋ 手順を追加する</button>
+            <button onClick={() => addState(steps, setSteps)}>
+              ＋ 手順を追加する
+            </button>
           </div>
           <div className={styles.emptySpace}></div>
         </div>
