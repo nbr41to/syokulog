@@ -1,5 +1,7 @@
 .root {
-  height: 80vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +80,7 @@
       padding: 8px 30px;
       border: none;
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-      margin-top: 50px;
+      margin: 50px 0;
       font-size: 0.9rem;
       &:hover {
         opacity: 0.7;

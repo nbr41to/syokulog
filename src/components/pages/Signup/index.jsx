@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import { useHistory } from 'react-router-dom';
-const Signup = () => {
+import defaultIcon from 'src/assets/svg/icon 1.svg';
+const SignupPage = () => {
   const history = useHistory();
 
   const handleLoginLinkClick = () => {
@@ -15,11 +16,7 @@ const Signup = () => {
     <div className={styles.root}>
       <div className={styles.container}>
         <icon />
-        <img
-          src={`${process.env.PUBLIC_URL}/images/icon 1.svg`}
-          alt="Logo"
-          className={styles.icon}
-        />
+        <img src={defaultIcon} alt="Icon" className={styles.icon} />
         <button className={styles.iconRegistLink}>写真を登録</button>
         <div className={styles.inputContainer}>
           <input placeholder="Name" className={styles.topInput} />
@@ -40,4 +37,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignupPage;
