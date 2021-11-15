@@ -56,7 +56,7 @@ const ingredientsPosts = [
   },
 ];
 
-export const IngredientDetailPage = () => {
+const IngredientDetailPage = () => {
   const { ingredientId } = useParams();
 
   const ingredient = ingredients.find(
@@ -72,3 +72,5 @@ export const IngredientDetailPage = () => {
     </div>
   );
 };
+
+export default IngredientDetailPage;

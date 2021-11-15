@@ -5,7 +5,7 @@ import HomePage from './components/pages/Home';
 import FoodPostsPage from './components/pages/FoodPosts';
 import { Layout } from './components/layout';
 import IngredientPostsPage from './components/pages/IngredientPosts';
-import { IngredientDetailPage } from 'src/components/pages/IngredientDetail';
+import IngredientDetailPage from 'src/components/pages/IngredientDetail';
 import CreateFoodPostsPage from './components/pages/CreateFoodPosts';
 
 const App = () => {
