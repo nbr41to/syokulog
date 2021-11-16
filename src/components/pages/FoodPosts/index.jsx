@@ -6,9 +6,9 @@ const FoodPostsPage = () => {
     <div className={styles.posts}>
       <h1>ここは投稿一覧</h1>
       <div>
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
+        <FoodCard ごはん/>
+        <FoodCard さかな/>
+        <FoodCard まめ/>
       </div>
     </div>
   );
