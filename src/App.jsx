@@ -6,6 +6,7 @@ import FoodPostsPage from './components/pages/FoodPosts';
 import { Layout } from './components/layout';
 import IngredientPostsPage from './components/pages/IngredientPosts';
 import SignupPage from './components/pages/Signup';
+import CreateFoodPostsPage from './components/pages/CreateFoodPosts';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             component={IngredientPostsPage}
           />
           <Route path="/signup" exact component={SignupPage} />
+          <Route path="/foods/new" exact component={CreateFoodPostsPage} />
           <Route path="/users" render={() => <>user page だよ</>} />
           <Route render={() => <>そのページはありません🥺</>} />
         </Switch>
