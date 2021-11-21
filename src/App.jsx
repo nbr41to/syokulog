@@ -23,11 +23,12 @@ import { Layout } from 'src/components/layout';
 import { DevMenu } from 'src/components/developer/DevMenu';
 
 const App = () => {
+  console.log(process.env.REACT_APP_IS_DEVELOPMENT);
   return (
     <Layout>
       <BrowserRouter>
         {/* 開発用メニュー */}
-        {process.env.NODE_ENV === 'development' ? <DevMenu /> : <></>}
+        {process.env.REACT_APP_IS_DEVELOPMENT ? <DevMenu /> : <></>}
 
         {/* Q)Switchの必要性とは？ */}
         <Switch>
