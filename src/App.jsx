@@ -23,7 +23,6 @@ import { Layout } from 'src/components/layout';
 import { DevMenu } from 'src/components/developer/DevMenu';
 
 const App = () => {
-  console.log(process.env.REACT_APP_IS_DEVELOPMENT);
   return (
     <Layout>
       <BrowserRouter>
