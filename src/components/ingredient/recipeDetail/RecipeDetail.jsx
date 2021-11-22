@@ -15,16 +15,16 @@ export const RecipeDetail = ({ recipeData }) => {
               <div className={styles.google_logo}>
                 <h1 className={styles.title}>{data.title}</h1>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images/googleのロゴ 1.svg`}
+                  src={`${process.env.PUBLIC_URL}/images/googleのロゴ1.svg`}
                   alt="Logo"
                   className={styles.google_icon}
                 />
               </div>
               <div className={styles.user}>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images/icon 1.svg`}
+                  src={`${process.env.PUBLIC_URL}/images/icon1.svg`}
                   alt="Logo"
-                  className={styles.icon}
+                  className={styles.user_icon}
                 />
                 <p className={styles.user_name}>{data.username}さん</p>
               </div>
