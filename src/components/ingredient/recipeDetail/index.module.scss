@@ -2,17 +2,42 @@
 .recipe {
   background-color: #fff;
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 15px;
 }
 .recipe_title {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: left;
+  .title_container {
+    margin-left: 10px;
+  }
+  .recipe_image {
+    width: 100px;
+    height: 100px;
+  }
   .title {
     font-size: 24px;
+    font-weight: normal;
     margin: 0;
+  }
+  .user {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .google_logo {
+    display: flex;
+
+    .google_icon {
+      margin-left: 120px;
+    }
   }
   .user_name {
     font-size: 15px;
     margin: 0;
+  }
+  .icon {
+    margin-right: 10px;
   }
 }
 ul {
