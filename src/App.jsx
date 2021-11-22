@@ -32,6 +32,7 @@ const App = () => {
         {/* Q)Switchの必要性とは？ */}
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/login" exact component={LoginPage} />
           <Route path="/foods/posts" exact component={FoodPostsPage} />
           <Route
             path="/ingredients/posts"

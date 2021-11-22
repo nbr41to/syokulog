@@ -10,7 +10,7 @@
     "sort-package-json": "npx sort-package-json 'package.json'",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "fmt": "eslint --fix '**/*.{js,jsx,ts,tsx}' && prettier --write --ignore-unknown '**/*.{js,jsx,ts,tsx,css,scss}'",
+    "fmt": "eslint --fix . && prettier --write --ignore-unknown .",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
