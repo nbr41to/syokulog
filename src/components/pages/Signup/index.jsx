@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styles from './index.module.scss';
 import { useHistory } from 'react-router-dom';
 import defaultIcon from 'src/assets/svg/icon 1.svg';
@@ -35,6 +36,12 @@ const SignupPage = () => {
       </div>
     </div>
   );
+=======
+import React from 'react';
+
+const SignupPage = () => {
+  return <div>アカウント登録</div>;
+>>>>>>> 795f825dd85df0c110ed6437f009d9c80788f93a
 };
 
 export default SignupPage;
