@@ -1,6 +1,7 @@
 // import './styles/reset.css';
 import './styles/global.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import HomePage from 'src/components/pages/Home';
 import FoodPostsPage from 'src/components/pages/FoodPosts';
 import IngredientPostsPage from 'src/components/pages/IngredientPosts';
