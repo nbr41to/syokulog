@@ -15,6 +15,17 @@ export const db = getFirestore(app);
 const ingredients = collection(db, 'ingredients');
 const posts = collection(db, 'posts');
 
+// ユーザ情報をFireStoreに登録 TODO）user.jsを作成してそこに移動
+export const setUserData = async (id, userData) => {
+  try {
+    const docRef = doc(db, 'users', id);
+    await setDoc(docRef, userData);
+  } catch (error) {
+    alert(error);
+  }
+};
+
+/* 食材の投稿 */
 export const postIngredient = async (ingredient) => {
   try {
     /* 投稿としての保存 */
