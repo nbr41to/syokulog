@@ -1,8 +1,9 @@
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './index.module.scss';
-import defaultIcon from 'src/assets/svg/icon 1.svg';
+import defaultIcon from 'src/assets/svg/parson.svg';
 import { register } from '../../../apis/auth';
+
 const SignupPage = () => {
   // input value
   const name = useRef('');
