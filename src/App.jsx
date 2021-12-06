@@ -1,9 +1,11 @@
 // import './styles/reset.css';
 import './styles/global.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from './components/pages/Home';
+import FoodPostsPage from './components/pages/FoodPosts';
+import { Layout } from './components/layout';
+import { DevMenu } from 'src/components/developer/DevMenu';
 
-import HomePage from 'src/components/pages/Home';
-import FoodPostsPage from 'src/components/pages/FoodPosts';
 import IngredientPostsPage from 'src/components/pages/IngredientPosts';
 import FoodPostsDetailPage from 'src/components/pages/FoodPostsDetail';
 import IngredientPostsDetailPage from 'src/components/pages/IngredientPostsDetail';
@@ -19,9 +21,6 @@ import SignupPage from 'src/components/pages/Signup';
 import MyProfilePage from 'src/components/pages/MyProfile';
 import MyIngredientsPage from 'src/components/pages/MyIngredients';
 import MyFoodsPage from 'src/components/pages/MyFoods';
-import { Layout } from 'src/components/layout';
-
-import { DevMenu } from 'src/components/developer/DevMenu';
 
 const App = () => {
   return (
@@ -62,7 +61,7 @@ const App = () => {
             exact
             component={IngredientsSearchPage}
           />
-          <Route path="/foods/:ingredientId" exact component={FoodDetailPage} />
+          <Route path="/foods/:foodId" exact component={FoodDetailPage} />
           <Route
             path="/ingredients/:ingredientId"
             exact
