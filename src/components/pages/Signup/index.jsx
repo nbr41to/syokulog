@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import { useHistory } from 'react-router-dom';
-import defaultIcon from 'src/assets/svg/icon 1.svg';
+import defaultIcon from 'src/assets/svg/parson.svg';
+
 const SignupPage = () => {
   const history = useHistory();
 
