@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-export const RecipeDetail = ({ recipeData }) => {
+export const FoodDetail = ({ recipeData }) => {
   return (
     <div className={styles.recipe_detail_container}>
       {recipeData?.map((data, index) => (
