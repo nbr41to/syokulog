@@ -65,7 +65,7 @@ export const postIngredient = async (ingredient) => {
   }
 };
 
-/* 食材を全て取得 */
+/* 食材の投稿を全て取得 */
 export const getIngredients = async () => {
   try {
     const q = query(posts, where('type', '==', 'ingredient'));
