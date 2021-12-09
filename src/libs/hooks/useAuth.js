@@ -8,12 +8,16 @@ const auth = getAuth(app);
 export const useAuth = () => {
   const history = useHistory();
   const location = useLocation();
+  const notAuthPaths = ['/login', '/signup'];
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        history.push('/login');
-      }
+      /* ログインしていて, notAuthPaths にいる場合 */
+      if (user && notAuthPaths.includes(location.pathname))
+        return history.push('/');
+      /* ログインしていなくて notAuthPaths にいない場合 */
+      if (!user && !notAuthPaths.includes(location.pathname))
+        return history.push('/login');
     });
   }, [location.pathname]);
 };
