@@ -24,8 +24,8 @@ import MyFoodsPage from 'src/components/pages/MyFoods';
 
 const App = () => {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         {/* 開発用メニュー */}
         {process.env.REACT_APP_IS_DEVELOPMENT ? <DevMenu /> : <></>}
 
@@ -75,8 +75,8 @@ const App = () => {
           <Route path="/my/ingredients" exact component={MyIngredientsPage} />
           <Route render={() => <>そのページはありません🥺</>} />
         </Switch>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 };
 

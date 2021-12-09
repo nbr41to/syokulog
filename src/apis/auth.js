@@ -1,15 +1,13 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { app } from './config';
+import { auth } from './config';
 import { GoogleAuthProvider } from 'firebase/auth';
-import { setUserData } from './post';
+import { getUser, setUserData } from './user';
 
-export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
 /**
@@ -26,7 +24,7 @@ export const register = async (name, email, password) => {
         email: email,
         username: name,
       };
-      setUserData(uid, userData);
+      await setUserData(uid, userData);
     }
     return result;
   } catch (error) {
@@ -53,7 +51,18 @@ export const login = async (email, password) => {
 export const signInGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    return result;
+    const user = result.user;
+    const uid = user.uid;
+
+    /* ユーザ情報が作成済みかチェック */
+    const exist = await getUser(uid);
+    if (!exist) {
+      await setUserData(user.uid, {
+        uid: user.uid,
+        email: user.email,
+        username: user.displayName,
+      });
+    }
   } catch (error) {
     alert(error);
   }

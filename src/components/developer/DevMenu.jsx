@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { logout } from 'src/apis/auth';
 import styles from './index.module.scss';
 
 export const DevMenu = () => {
@@ -10,34 +11,34 @@ export const DevMenu = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/foods/posts">料理一覧</Link>
+          <Link to="/foods/posts">投稿一覧（料理）</Link>
         </li>
         <li>
-          <Link to="/ingredients/posts">料理一覧</Link>
+          <Link to="/ingredients/posts">投稿一覧（食材）</Link>
         </li>
         <li>
-          <Link to="/foods/posts/a123">料理投稿の詳細</Link>
+          <Link to="/foods/posts/a123">投稿詳細（料理）</Link>
         </li>
         <li>
-          <Link to="/ingredients/posts/a123">食材投稿の詳細</Link>
+          <Link to="/ingredients/posts/a123">投稿詳細（食材）</Link>
         </li>
         <li>
-          <Link to="/foods/new">料理の新規投稿</Link>
+          <Link to="/foods/new">新規投稿（料理）</Link>
         </li>
         <li>
-          <Link to="/ingredients/new">食材の新規投稿</Link>
+          <Link to="/ingredients/new">新規投稿（食材）</Link>
         </li>
         <li>
-          <Link to="/foods/search">料理の検索</Link>
+          <Link to="/foods/search">検索（料理）</Link>
         </li>
         <li>
-          <Link to="/ingredients/search">食材の検索</Link>
+          <Link to="/ingredients/search">検索（食材）</Link>
         </li>
         <li>
-          <Link to="/foods/a123">料理の詳細</Link>
+          <Link to="/foods/a123">詳細（料理）</Link>
         </li>
         <li>
-          <Link to="/ingredients/a123">食材の詳細</Link>
+          <Link to="/ingredients/a123">詳細（食材）</Link>
         </li>
         <li>
           <Link to="/weather">天気の確認</Link>
@@ -56,6 +57,9 @@ export const DevMenu = () => {
         </li>
         <li>
           <Link to="/my/ingredients">自分が記録した食材一覧</Link>
+        </li>
+        <li>
+          <button onClick={logout}>ログアウト</button>
         </li>
       </ul>
     </div>

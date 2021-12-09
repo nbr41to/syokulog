@@ -1,6 +1,5 @@
-import { app } from './config';
+import { db } from './config';
 import {
-  getFirestore,
   collection,
   doc,
   setDoc,
@@ -10,20 +9,9 @@ import {
   query,
   where,
 } from 'firebase/firestore';
-export const db = getFirestore(app);
 
 const ingredients = collection(db, 'ingredients');
 const posts = collection(db, 'posts');
-
-// ユーザ情報をFireStoreに登録 TODO）user.jsを作成してそこに移動
-export const setUserData = async (id, userData) => {
-  try {
-    const docRef = doc(db, 'users', id);
-    await setDoc(docRef, userData);
-  } catch (error) {
-    alert(error);
-  }
-};
 
 /* 食材の投稿 */
 export const postIngredient = async (ingredient) => {
@@ -32,7 +20,8 @@ export const postIngredient = async (ingredient) => {
     const postsDocRef = doc(posts);
     await setDoc(postsDocRef, {
       id: postsDocRef.id,
-      ingredient,
+      type: 'ingredient',
+      ...ingredient,
       atDate: serverTimestamp(),
     });
 
@@ -71,6 +60,17 @@ export const postIngredient = async (ingredient) => {
 
     /* 重複している場合は既存のデータベースに追加 */
     return true;
+  } catch (error) {
+    throw Error(error);
+  }
+};
+
+/* 食材を全て取得 */
+export const getIngredients = async () => {
+  try {
+    const q = query(posts, where('type', '==', 'ingredient'));
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map((doc) => doc.data());
   } catch (error) {
     throw Error(error);
   }
