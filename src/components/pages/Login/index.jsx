@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { auth, login, signInGoogle } from 'src/apis/auth';
+import { login, signInGoogle } from 'src/apis/auth';
+import { auth } from 'src/apis/config';
 import styles from './index.module.scss';
 
 const LoginPage = () => {

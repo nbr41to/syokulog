@@ -24,14 +24,13 @@ import MyFoodsPage from 'src/components/pages/MyFoods';
 
 const App = () => {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         {/* 開発用メニュー */}
         {process.env.REACT_APP_IS_DEVELOPMENT ? <DevMenu /> : <></>}
-
-        {/* Q)Switchの必要性とは？ */}
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/foods/posts" exact component={FoodPostsPage} />
           <Route
@@ -67,16 +66,14 @@ const App = () => {
             exact
             component={IngredientDetailPage}
           />
-          <Route path="/weather" exact component={WeatherPage} />
-          <Route path="/login" exact component={LoginPage} />
-          <Route path="/signup" exact component={SignupPage} />
           <Route path="/my/profile" exact component={MyProfilePage} />
           <Route path="/my/foods" exact component={MyFoodsPage} />
           <Route path="/my/ingredients" exact component={MyIngredientsPage} />
+          <Route path="/weather" exact component={WeatherPage} />
           <Route render={() => <>そのページはありません🥺</>} />
         </Switch>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 };
 
