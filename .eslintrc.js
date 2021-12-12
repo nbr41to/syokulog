@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
     node: true,
   },
   settings: {
@@ -20,7 +20,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     quotes: ['warn', 'single'],
-    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
   },
