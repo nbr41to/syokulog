@@ -1,18 +1,15 @@
+import { useAuth } from 'src/libs/hooks/useAuth';
+import { Footer } from './Footer';
+import { Header } from './Header';
 import styles from './index.module.scss';
 
 export const Layout = ({ children }) => {
+  useAuth();
   return (
     <div className={styles.wrapper}>
-      <header className={styles.header}>
-        <div className={styles.header__text}>食ログ</div>
-        <div className={styles.header__subtext}>- syokulog -</div>
-      </header>
+      <Header className={styles.header} />
       <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>
-        <div className={styles.footer__text}>
-          © 2021 progLab All rights reserved.
-        </div>
-      </footer>
+      <Footer className={styles.footer} />
     </div>
   );
 };

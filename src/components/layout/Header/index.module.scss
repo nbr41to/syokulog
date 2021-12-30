@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  background-color: #fff;
+
+  &__text {
+    font-size: 16px;
+  }
+  .account {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+  }
+}
