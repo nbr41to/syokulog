@@ -3,7 +3,6 @@ import './styles/global.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './components/pages/Home';
 import FoodPostsPage from './components/pages/FoodPosts';
-import IngredientsSearchPage from 'src/components/pages/IngredientsSearch';
 import { Layout } from './components/layout';
 import { DevMenu } from 'src/components/developer/DevMenu';
 
