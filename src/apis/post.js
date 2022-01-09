@@ -97,14 +97,14 @@ export const postFood = async (foodBasicInfo, ingredients, steps) => {
       type: 'foods',
       ingredients,
       foodName: foodBasicInfo.foodName,
-      imgeUrl: 'https://picsum.photos/80', // TODO:画像投稿機能の追加後にpostFoodの引数にimgeUrlを追加する。
-      memo: foodBasicInfo.memo, // TODO:投稿一覧にメモ書きがあるが入力欄が現状存在しない。
+      imgeUrl: 'https://picsum.photos/80', // TODO:画像投稿機能の追加後にpostFood関数の引数にimgeUrlを追加する。
+      memo: foodBasicInfo.memo,
       atDate: serverTimestamp(),
     });
     // foodドキュメントに追加するdataObjの作成
     const dataObj = {
       imgeUrl: 'https://picsum.photos/80', // TODO:画像投稿機能の追加後にpostFoodの引数にimgeUrlを追加する。
-      userName: 'John Doe', // userNameの取得できれば行う
+      userName: 'John Doe', // TODO:ユーザ名がAuthに登録されるようになったら修正。
       memo: foodBasicInfo.memo,
       serving: foodBasicInfo.serving,
       cookingTime: foodBasicInfo.cookingTime,
