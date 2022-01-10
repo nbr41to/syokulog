@@ -8,12 +8,11 @@ const format = (date) => {
   return `${y}/${m}/${d}`;
 };
 
-// TODO:sendAtの修正
-export const FoodCard = ({ foodName, atDate, imgeUrl, ingredients, memo }) => {
+export const FoodCard = ({ foodName, atDate, imageUrl, ingredients, memo }) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__image_wrapper}>
-        <img src={imgeUrl} alt="料理の画像" />
+        <img src={imageUrl} alt="料理の画像" />
       </div>
       <div>
         <div className={styles.title}>{foodName}</div>
