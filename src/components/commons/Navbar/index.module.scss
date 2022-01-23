@@ -1,0 +1,25 @@
+.navBgcolor {
+  width: '374px';
+  height: '100%';
+  position: 'absolute';
+  animation: 'name 1s forwards';
+}
+
+@keyframes toLeft {
+  0% {
+    transform: translateX(-224px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.navBar {
+  border-right: '1px solid rgba(0, 0, 0, 0.2)';
+  width: '224px';
+  height: '918px';
+  background-color: 'white';
+  position: 'absolute';
+  animation: 'toLeft 1s forwards';
+  transform: 'translateX(100%)';
+}

@@ -1,9 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './index.module.scss';
+import weather from '../../../assets/svg/weather.svg';
+import search from '../../../assets/svg/search.svg';
+import home from '../../../assets/svg/home.svg';
+import add from '../../../assets/svg/add.svg';
 
-const menuTitles = ['ホーム', '検索', '投稿', '天気'];
+// ナビゲーションバーアイテム
+const menuItems = [
+  { title: 'ホーム', imgPath: home, to: '/' },
+  { title: '検索', imgPath: search, to: 'foods/search' },
+  { title: '投稿', imgPath: add, to: '/foods/posts' },
+  { title: '天気', imgPath: weather, to: '/weather' },
+];
 
 export const Navbar = ({ closeMenu }) => (
   <>
+    {/* アニメーション定義 */}
     <style>
       {`@keyframes toLeft {
   0% {
@@ -22,15 +35,9 @@ export const Navbar = ({ closeMenu }) => (
         }
         `}
     </style>
-    <div
-      style={{
-        width: '374px',
-        height: '100%',
-        position: 'absolute',
-        animation: `name 1s forwards`,
-      }}
-      onClick={closeMenu}
-    >
+    {/* 背景色：グレー */}
+    <div className={styles.navBgcolor} onClick={closeMenu}>
+      {/* ナビゲーションバー */}
       <div
         style={{
           borderRight: '1px solid rgba(0, 0, 0, 0.2)',
@@ -38,17 +45,33 @@ export const Navbar = ({ closeMenu }) => (
           height: '918px',
           backgroundColor: 'white',
           position: 'absolute',
-          animation: `toLeft 1s forwards`,
+          animation: 'toLeft 1s forwards',
           transform: 'translateX(100%)',
         }}
       >
+        {/* ナビゲーションバータイトル */}
         <div style={{ textAlign: 'center' }}>
           <p>メニュー</p>
         </div>
+        {/* ナビゲーションバーアイテム */}
         <ul>
-          {menuTitles.map((title, i) => (
-            <li key={i} style={{ padding: '10px,0' }}>
-              {title}
+          {menuItems.map((item, i) => (
+            <li key={i}>
+              <Link
+                to={item.to}
+                style={{
+                  color: 'rgba(0, 0, 0, 0.8)',
+                  padding: '10px 0px',
+                  textDecoration: 'none',
+                }}
+              >
+                <img
+                  style={{ width: '20px' }}
+                  src={item.imgPath}
+                  alt={'watherIcon'}
+                />
+                <span style={{ marginLeft: '10px' }}>{item.title}</span>
+              </Link>
             </li>
           ))}
         </ul>
