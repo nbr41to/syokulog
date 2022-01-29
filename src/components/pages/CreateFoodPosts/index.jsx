@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import cameraImage from '../../../assets/svg/camera.svg';
 import threeLineImage from '../../../assets/svg/three-line.svg';
 import formDeleteImage from '../../../assets/svg/form-delete.svg';
+import { postFood } from 'src/apis/post';
 
 const IngredientItem = ({
   value,
@@ -48,6 +49,14 @@ const StepItem = ({ value, index, deleteStep, preserveStepsState }) => {
 };
 
 const CreateFoodPosts = () => {
+  const InitialFoodBasicInfo = {
+    foodName: '',
+    memo: '',
+    serving: '',
+    cookingTime: '',
+  };
+  const [foodBasicInfo, setFoodBasicInfo] = useState(InitialFoodBasicInfo);
+
   const [ingredients, setIngredients] = useState(['', '', '']);
   const [steps, setSteps] = useState(['', '', '', '']);
 
@@ -68,6 +77,13 @@ const CreateFoodPosts = () => {
     setStateAction(copiedState);
   };
 
+  const post = () => {
+    postFood(foodBasicInfo, ingredients, steps);
+    setFoodBasicInfo(InitialFoodBasicInfo);
+    setIngredients(['', '', '']);
+    setSteps(['', '', '', '']);
+  };
+
   return (
     <div className={styles.pageWrap}>
       <section className={styles.photoUploadSection}>
@@ -80,20 +96,54 @@ const CreateFoodPosts = () => {
       <section className={styles.recipeFormSection}>
         <div className={styles.basicInfoArea}>
           <div>
-            <input type="text" name="food-name" placeholder="タイトル" />
+            <input
+              type="text"
+              value={foodBasicInfo.foodName}
+              name="food-name"
+              placeholder="タイトル"
+              onChange={(e) =>
+                setFoodBasicInfo({ ...foodBasicInfo, foodName: e.target.value })
+              }
+            />
             <textarea
+              value={foodBasicInfo.memo}
               name="food-detail"
               cols="30"
               rows="10"
               placeholder="レシピを書く"
+              onChange={(e) =>
+                setFoodBasicInfo({ ...foodBasicInfo, memo: e.target.value })
+              }
             ></textarea>
             <div>
               <label htmlFor="serves">人数</label>
-              <input id="serves" type="text" placeholder="2人分" />
+              <input
+                id="serves"
+                type="text"
+                value={foodBasicInfo.serving}
+                placeholder="2人分"
+                onChange={(e) =>
+                  setFoodBasicInfo({
+                    ...foodBasicInfo,
+                    serving: e.target.value,
+                  })
+                }
+              />
             </div>
             <div>
               <label htmlFor="cook-time">調理時間</label>
-              <input id="cook-time" type="text" placeholder="1時間30分" />
+              <input
+                id="cook-time"
+                type="text"
+                value={foodBasicInfo.cookingTime}
+                placeholder="1時間30分"
+                onChange={(e) =>
+                  setFoodBasicInfo({
+                    ...foodBasicInfo,
+                    cookingTime: e.target.value,
+                  })
+                }
+              />
             </div>
           </div>
           <div className={styles.emptySpace}></div>
@@ -149,7 +199,7 @@ const CreateFoodPosts = () => {
         </div>
 
         <div className={styles.postButtonArea}>
-          <button>投稿する</button>
+          <button onClick={post}>投稿する</button>
         </div>
       </section>
     </div>

@@ -1,0 +1,31 @@
+.footer {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+
+  .menu_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #6e6f6f;
+    cursor: pointer;
+
+    .icon {
+      width: 28px;
+      height: 28px;
+    }
+    .text {
+      font-size: 12px;
+      text-decoration: underline;
+      margin-top: 4px;
+    }
+  }
+  .account {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+  }
+}

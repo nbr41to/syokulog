@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { IngredientDetail } from 'src/components/Ingredients/IngredientDetail/IngredientDetail';
+import { IngredientDetail } from 'src/components/Ingredients/IngredientDetail';
 import styles from './index.module.scss';
 
 const ingredients = [
