@@ -23,3 +23,13 @@
   animation: 'toLeft 1s forwards';
   transform: 'translateX(100%)';
 }
+
+.navBarTitle {
+  text-align: 'center';
+}
+
+.navBarItem {
+  color: 'rgba(0, 0, 0, 0.8)';
+  padding: '10px 0px';
+  text-decoration: 'none';
+}
