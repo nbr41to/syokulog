@@ -1,0 +1,103 @@
+/** ナビゲーション**/
+.currentInfoWrapper {
+  display: flex;
+  padding: 5px;
+  background-color: #ffffff;
+  & .currentLocation {
+    width: 30%;
+    display: flex;
+    & img {
+      margin-right: 0.25rem;
+    }
+  }
+  & .currentDate {
+    width: 70%;
+  }
+}
+
+/** 天気メイン(親コンポーネント)**/
+.mainWeatherWrapper {
+  padding: 13px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  & .buttonWrapper {
+    display: flex;
+    padding-bottom: 15px;
+    & button {
+      border: none;
+      outline: none;
+      &:enabled {
+        background-color: #f8f8f8;
+        color: #000000;
+      }
+      &:disabled {
+        background-color: #d8d196;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+/** 今日の天気(子コンポーネント)**/
+.todayWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  & .weatherArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80px;
+    text-align: center;
+    & .weatherImageWrapper {
+      margin-right: auto;
+    }
+  }
+  & .temperatureArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & b {
+      margin: 0 14px 0 40px;
+      font-weight: bold;
+      font-family: Arial;
+      font-size: 30px;
+      line-height: 120%;
+    }
+  }
+}
+
+/** 3時間ごとの天気(子コンポーネント)**/
+table {
+  display: flex;
+  & thead {
+    & th {
+      font-size: 14px;
+      line-height: 120%;
+    }
+    & tr {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 100%;
+    }
+  }
+  & tbody {
+    display: flex;
+    margin: 0 14px;
+    overflow-x: scroll;
+    & tr {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 0 5px;
+    }
+    & img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
