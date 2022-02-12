@@ -54,7 +54,7 @@ export const collectionDocFetcher = async <T>(
  */
 export const collectionQueryFetcher = async <T>(key: string): Promise<T[]> => {
   const [_, collectionParam, queryField, queryValue] = key.split('/');
-  console.log(collectionParam, queryField, queryValue);
+  // console.log(collectionParam, queryField, queryValue);
   if (!collectionParam || !queryField || !queryValue)
     throw Error('not found key value');
   try {

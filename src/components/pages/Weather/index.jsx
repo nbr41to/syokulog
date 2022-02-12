@@ -2,8 +2,12 @@ import { useState } from 'react';
 import styles from './index.module.scss';
 import CurrentLoactionImage from '../../../assets/svg/current-location.svg';
 import SunnyImage from '../../../assets/svg/sunny.svg';
+import Loading from '../../../assets/gif/loading.gif';
+import { useWeatherData } from '../../../apis/hooks/useWeatherData';
 
 const WeatherPage = () => {
+  const { currentWeatherData, dailyWeatherData } = useWeatherData();
+
   const A = () => {
     const [disabled, setDisabled] = useState(true);
     return (
@@ -24,7 +28,7 @@ const WeatherPage = () => {
             3時間
           </button>
         </div>
-        {disabled ? <Today /> : <ThreeHours />}
+        {disabled ? <Today /> : <EveryThreeHours />}
       </section>
     );
   };
@@ -37,14 +41,14 @@ const WeatherPage = () => {
             <img src={SunnyImage} alt="weather image" />
           </div>
           <div>
-            <span>晴れ</span>
+            <span>{currentWeatherData.weather}</span>
           </div>
         </div>
         <div className={styles.temperatureArea}>
           <div>
             <div>
               <span>最高</span>
-              <b>15&deg;C</b>
+              <b>{currentWeatherData.maxTemp}&deg;C</b>
               <span>[0]</span>
             </div>
             <div></div>
@@ -52,7 +56,7 @@ const WeatherPage = () => {
           <div>
             <div>
               <span>最低</span>
-              <b>10&deg;C</b>
+              <b>{currentWeatherData.minTemp}&deg;C</b>
               <span>[0]</span>
             </div>
             <div></div>
@@ -65,7 +69,8 @@ const WeatherPage = () => {
     );
   };
 
-  const ThreeHours = () => {
+  const EveryThreeHours = () => {
+    const hours = [0, 3, 6, 9, 12, 15, 18, 21];
     return (
       <table>
         <thead>
@@ -77,88 +82,63 @@ const WeatherPage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>0</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
-          <tr>
-            <td>21</td>
-            <td>
-              <img src={SunnyImage} alt="weather logo" />
-            </td>
-            <td>10&deg;C</td>
-            <td>0mm</td>
-          </tr>
+          {hours.map((hour) => {
+            return (
+              <tr key={hour}>
+                <td>{hour}</td>
+                <td>
+                  <img src={SunnyImage} alt="weather logo" />
+                </td>
+                <td>10&deg;C</td>
+                <td>0mm</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );
   };
 
-  return (
+  const OneWeek = () => {
+    return (
+      <section className={styles.weeklyWeatherWrapper}>
+        <h3>一週間の天気</h3>
+        <div>
+          {dailyWeatherData.map((data, index) => {
+            return (
+              <div className={styles.weeklyWeatherItem} key={index}>
+                <time>12月31日（月）</time>
+                <img src={SunnyImage} alt="weather image" />
+                <span>20%</span>
+                <span>
+                  {data.maxTemp} / {data.minTemp}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    );
+  };
+
+  return currentWeatherData && dailyWeatherData ? (
     <>
       <section className={styles.currentInfoWrapper}>
         <div className={styles.currentLocation}>
           <img src={CurrentLoactionImage} alt="current location" />
-          <span>東京</span>
+          <span>{currentWeatherData.area}</span>
         </div>
         <div className={styles.currentDate}>
           <time>2022年12月31日</time>
         </div>
       </section>
       <A />
+      <OneWeek />
     </>
+  ) : (
+    <div className={styles.loadingWrapper}>
+      <img src={Loading} />
+    </div>
   );
 };
 
