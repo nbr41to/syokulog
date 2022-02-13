@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useGeoCoords } from './useGeoCoords';
+import dayjs from 'dayjs';
 
 //TODO: APIレスポンスの型定義
 //TODO: anyにしている箇所の適切な型の付与
@@ -49,14 +50,17 @@ export const useWeatherData = () => {
           delete responseDailyData[6];
           delete responseDailyData[7];
           type dailyWeatherType = {
+            date: dayjs.Dayjs;
             weather: string;
             chanceOfRain: number;
             maxTemp: number;
             minTemp: number;
           };
           const tempWeatherData: dailyWeatherType[] = [];
-          responseDailyData.map((dailyDatum: any) => {
+          const now: dayjs.Dayjs = dayjs();
+          responseDailyData.map((dailyDatum: any, index: number) => {
             tempWeatherData.push({
+              date: now.add(index + 1, 'day'),
               weather: dailyDatum.weather[0].main,
               chanceOfRain: 20,
               maxTemp: dailyDatum.temp.max,

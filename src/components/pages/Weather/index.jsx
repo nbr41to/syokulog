@@ -4,9 +4,13 @@ import CurrentLoactionImage from '../../../assets/svg/current-location.svg';
 import SunnyImage from '../../../assets/svg/sunny.svg';
 import Loading from '../../../assets/gif/loading.gif';
 import { useWeatherData } from '../../../apis/hooks/useWeatherData';
+import dayjs from 'dayjs';
+import ja from 'dayjs/locale/ja';
+dayjs.locale(ja);
 
 const WeatherPage = () => {
   const { currentWeatherData, dailyWeatherData } = useWeatherData();
+  console.log(dailyWeatherData);
 
   const A = () => {
     const [disabled, setDisabled] = useState(true);
@@ -107,7 +111,10 @@ const WeatherPage = () => {
           {dailyWeatherData.map((data, index) => {
             return (
               <div className={styles.weeklyWeatherItem} key={index}>
-                <time>12月31日（月）</time>
+                <time dateTime={data.date.format('YYYY-MM-DD')}>
+                  {data.date.month() + 1}月{data.date.date()}日（
+                  {data.date.format('dd')}）
+                </time>
                 <img src={SunnyImage} alt="weather image" />
                 <span>20%</span>
                 <span>
