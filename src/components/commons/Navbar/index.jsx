@@ -13,7 +13,7 @@ const menuItems = [
   {
     title: '新規投稿（料理）',
     imgPath: weather,
-    to: '/ingredients/posts/a123',
+    to: '/foods/new',
   },
   { title: '新規投稿（食材）', imgPath: weather, to: '/ingredients/new' },
   { title: '検索（料理）', imgPath: weather, to: '/foods/search' },
