@@ -109,8 +109,6 @@ export const postFood = async (foodBasicInfo, ingredients, steps, file) => {
     /* 最初に料理の画像を保存 */
     const savedUrl = await postFoodImage({ postId: postsDocRef.id, file });
     const imageUrl = await getDownloadURL(storageRef(savedUrl));
-    console.log(savedUrl);
-    console.log(imageUrl);
 
     // postドキュメントにデータ追加
     await setDoc(postsDocRef, {
