@@ -88,6 +88,7 @@ const CreateFoodPosts = () => {
     setFoodBasicInfo(InitialFoodBasicInfo);
     setIngredients(['', '', '']);
     setSteps(['', '', '', '']);
+    setUploadedFile();
   };
 
   return (
