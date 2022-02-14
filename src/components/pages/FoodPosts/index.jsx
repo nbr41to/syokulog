@@ -17,9 +17,19 @@ const FoodPostsPage = () => {
     <div className={styles.page}>
       <h1>ここは投稿一覧</h1>
       <div>
-        {foods.map((food) => (
-          <FoodCard key={food.id} {...food} />
-        ))}
+        {foods
+          .sort((a, b) => {
+            if (a.atDate > b.atDate) {
+              return -1;
+            }
+            if (a.atDate < b.atDate) {
+              return 1;
+            }
+            return 0;
+          })
+          .map((food) => (
+            <FoodCard key={food.id} {...food} />
+          ))}
       </div>
     </div>
   );
