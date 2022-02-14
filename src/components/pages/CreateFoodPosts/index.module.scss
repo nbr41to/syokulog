@@ -12,10 +12,17 @@ Section.photoUploadSection {
   background: $primaryGray;
   text-align: center;
   padding: 13px 0;
-  & div:first-child {
+  & label:first-child {
     width: 60 px;
     height: 47 px;
     margin: auto;
+    cursor: pointer;
+    & input[type='file'] {
+      display: none;
+    }
+    .preview {
+      width: 100%;
+    }
   }
   & h2 {
     font-size: 18px;
