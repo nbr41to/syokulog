@@ -17,9 +17,19 @@ export const IngredientPosts = () => {
     <div className={styles.posts}>
       <h1>食材投稿一覧</h1>
       <div>
-        {ingredients.map((ingredient) => (
-          <PostCard key={ingredient.id} ingredient={ingredient} />
-        ))}
+        {ingredients
+          .sort((a, b) => {
+            if (a.atDate > b.atDate) {
+              return -1;
+            }
+            if (a.atDate < b.atDate) {
+              return 1;
+            }
+            return 0;
+          })
+          .map((ingredient) => (
+            <PostCard key={ingredient.id} ingredient={ingredient} />
+          ))}
       </div>
     </div>
   );
