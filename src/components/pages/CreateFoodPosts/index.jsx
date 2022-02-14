@@ -84,7 +84,7 @@ const CreateFoodPosts = () => {
   };
 
   const post = () => {
-    postFood(foodBasicInfo, ingredients, steps);
+    postFood(foodBasicInfo, ingredients, steps, uploadedFile);
     setFoodBasicInfo(InitialFoodBasicInfo);
     setIngredients(['', '', '']);
     setSteps(['', '', '', '']);
