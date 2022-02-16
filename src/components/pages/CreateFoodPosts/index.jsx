@@ -62,6 +62,10 @@ const CreateFoodPosts = () => {
     if (!process.browser || !uploadedFile) return;
     return window.URL.createObjectURL(uploadedFile);
   }, [uploadedFile]);
+  const uploadFile = (e) => {
+    if (!e.target.files[0]) return; //ファイルが選ばれなかったときはなにもしない
+    setUploadedFile(e.target.files[0]);
+  };
 
   const [ingredients, setIngredients] = useState(['', '', '']);
   const [steps, setSteps] = useState(['', '', '', '']);
@@ -105,7 +109,7 @@ const CreateFoodPosts = () => {
             name="food-image"
             accept="image/*"
             type="file"
-            onChange={(e) => setUploadedFile(e.target.files[0])}
+            onChange={uploadFile}
           />
         </label>
         <h2>写真を登録する</h2>
