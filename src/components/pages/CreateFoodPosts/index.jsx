@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useMemo } from 'react';
 import styles from './index.module.scss';
 import cameraImage from '../../../assets/svg/camera.svg';
 import threeLineImage from '../../../assets/svg/three-line.svg';
@@ -56,6 +56,16 @@ const CreateFoodPosts = () => {
     cookingTime: '',
   };
   const [foodBasicInfo, setFoodBasicInfo] = useState(InitialFoodBasicInfo);
+  const [uploadedFile, setUploadedFile] = useState();
+  /* プレビュー用のimageSrc */
+  const uploadedFileSrc = useMemo(() => {
+    if (!process.browser || !uploadedFile) return;
+    return window.URL.createObjectURL(uploadedFile);
+  }, [uploadedFile]);
+  const uploadFile = (e) => {
+    if (!e.target.files[0]) return; //ファイルが選ばれなかったときはなにもしない
+    setUploadedFile(e.target.files[0]);
+  };
 
   const [ingredients, setIngredients] = useState(['', '', '']);
   const [steps, setSteps] = useState(['', '', '', '']);
@@ -78,18 +88,30 @@ const CreateFoodPosts = () => {
   };
 
   const post = () => {
-    postFood(foodBasicInfo, ingredients, steps);
+    postFood(foodBasicInfo, ingredients, steps, uploadedFile);
     setFoodBasicInfo(InitialFoodBasicInfo);
     setIngredients(['', '', '']);
     setSteps(['', '', '', '']);
+    setUploadedFile();
   };
 
   return (
     <div className={styles.pageWrap}>
       <section className={styles.photoUploadSection}>
-        <div>
-          <img src={cameraImage} />
-        </div>
+        <label htmlFor="food-image">
+          {uploadedFileSrc ? (
+            <img className={styles.preview} src={uploadedFileSrc} />
+          ) : (
+            <img src={cameraImage} />
+          )}
+          <input
+            id="food-image"
+            name="food-image"
+            accept="image/*"
+            type="file"
+            onChange={uploadFile}
+          />
+        </label>
         <h2>写真を登録する</h2>
         <span>レシピを投稿して他の人を助けましょう</span>
       </section>
