@@ -4,13 +4,14 @@ import CurrentLoactionImage from '../../../assets/svg/current-location.svg';
 import SunnyImage from '../../../assets/svg/sunny.svg';
 import Loading from '../../../assets/gif/loading.gif';
 import { useWeatherData } from '../../../apis/hooks/useWeatherData';
+import { useWeatherIcon } from '../../../apis/hooks/useWeatherIcon';
 import dayjs from 'dayjs';
 import ja from 'dayjs/locale/ja';
-dayjs.locale(ja);
 
 const WeatherPage = () => {
   const { currentWeatherData, dailyWeatherData } = useWeatherData();
-  console.log(dailyWeatherData);
+  dayjs.locale(ja);
+  const now = dayjs();
 
   const A = () => {
     const [disabled, setDisabled] = useState(true);
@@ -42,7 +43,10 @@ const WeatherPage = () => {
       <div className={styles.todayWrapper}>
         <div className={styles.weatherArea}>
           <div className={styles.weatherImageWrapper}>
-            <img src={SunnyImage} alt="weather image" />
+            <img
+              src={useWeatherIcon(currentWeatherData.weather)}
+              alt="weather image"
+            />
           </div>
           <div>
             <span>{currentWeatherData.weather}</span>
@@ -52,7 +56,7 @@ const WeatherPage = () => {
           <div>
             <div>
               <span>最高</span>
-              <b>{currentWeatherData.maxTemp}&deg;C</b>
+              <b>{Math.round(currentWeatherData.maxTemp)}&deg;C</b>
               <span>[0]</span>
             </div>
             <div></div>
@@ -60,7 +64,7 @@ const WeatherPage = () => {
           <div>
             <div>
               <span>最低</span>
-              <b>{currentWeatherData.minTemp}&deg;C</b>
+              <b>{Math.round(currentWeatherData.minTemp)}&deg;C</b>
               <span>[0]</span>
             </div>
             <div></div>
@@ -115,10 +119,10 @@ const WeatherPage = () => {
                   {data.date.month() + 1}月{data.date.date()}日（
                   {data.date.format('dd')}）
                 </time>
-                <img src={SunnyImage} alt="weather image" />
+                <img src={useWeatherIcon(data.weather)} alt="weather image" />
                 <span>20%</span>
                 <span>
-                  {data.maxTemp} / {data.minTemp}
+                  {Math.round(data.maxTemp)} / {Math.round(data.minTemp)}
                 </span>
               </div>
             );
@@ -136,7 +140,9 @@ const WeatherPage = () => {
           <span>{currentWeatherData.area}</span>
         </div>
         <div className={styles.currentDate}>
-          <time>2022年12月31日</time>
+          <time>
+            {now.format('YYYY')}年{now.format('M')}月{now.format('DD')}日
+          </time>
         </div>
       </section>
       <A />
