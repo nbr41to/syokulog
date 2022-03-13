@@ -3,6 +3,7 @@ import weather from '../../../assets/svg/weather.svg';
 import search from '../../../assets/svg/search.svg';
 import home from '../../../assets/svg/home.svg';
 import add from '../../../assets/svg/add.svg';
+import styles from './index.module.scss';
 
 // ナビゲーションバーアイテム
 const menuItems = [
@@ -31,7 +32,7 @@ const menuItems = [
 export const Navbar = ({ closeMenu }) => (
   <>
     {/* アニメーション定義 */}
-    <style>
+    {/* <style>
       {`@keyframes toLeft {
   0% {
     transform: translateX(-224px);
@@ -48,56 +49,26 @@ export const Navbar = ({ closeMenu }) => (
           100% { background: rgba(242,242,242,0.8); }
         }
         `}
-    </style>
+    </style> */}
     {/* 背景色：グレー */}
-    <div
-      style={{
-        width: '374px',
-        height: '784px',
-        position: 'absolute',
-        animation: 'name 0.7s forwards',
-      }}
-      onClick={closeMenu}
-    >
+    <div className={styles.navBgcolor} onClick={closeMenu}>
       {/* ナビゲーションバー */}
-      <div
-        style={{
-          borderRight: '1px solid rgba(0, 0, 0, 0.2)',
-          width: '224px',
-          height: '784px',
-          overflow: 'auto',
-          backgroundColor: 'white',
-          position: 'absolute',
-          animation: 'toLeft 0.7s forwards',
-          transform: 'translateX(100%)',
-        }}
-      >
+      <div className={styles.navBar}>
         {/* ナビゲーションバータイトル */}
-        <div
-          style={{
-            textAlign: 'center',
-          }}
-        >
+        <div className={styles.navBarTitle}>
           <p>メニュー</p>
         </div>
         {/* ナビゲーションバーアイテム */}
         <ul>
           {menuItems.map((item, i) => (
             <li key={i}>
-              <Link
-                to={item.to}
-                style={{
-                  color: 'rgba(0, 0, 0, 0.8)',
-                  padding: '10px 0px',
-                  textDecoration: 'none',
-                }}
-              >
+              <Link to={item.to} className={styles.navBarItemLink}>
                 <img
-                  style={{ width: '20px' }}
+                  className={styles.navBarItemImg}
                   src={item.imgPath}
                   alt={'watherIcon'}
                 />
-                <span style={{ marginLeft: '10px' }}>{item.title}</span>
+                <span className={styles.navBarItemText}>{item.title}</span>
               </Link>
             </li>
           ))}
