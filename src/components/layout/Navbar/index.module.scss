@@ -1,0 +1,55 @@
+@keyframes toLeft {
+  0% {
+    transform: translateX(-224px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes name {
+  0% {
+    background: rgba(242, 242, 242, 0.1);
+  }
+  50% {
+    background: rgba(242, 242, 242, 0.7);
+  }
+  100% {
+    background: rgba(242, 242, 242, 0.8);
+  }
+}
+
+.navBgcolor {
+  width: 374px;
+  height: 100%;
+  position: absolute;
+  animation: name 1s forwards;
+}
+
+.navBar {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  width: 224px;
+  height: 918px;
+  background-color: white;
+  position: absolute;
+  animation: toLeft 1s forwards;
+  transform: translateX(100%);
+}
+
+.navBarTitle {
+  text-align: center;
+}
+
+.navBarItemLink {
+  color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0px;
+  text-decoration: none;
+}
+
+.navBarItemImg {
+  width: 20px;
+}
+
+.navBarItemText {
+  margin-left: 10px;
+}
