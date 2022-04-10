@@ -5,7 +5,6 @@ import styles from './index.module.scss';
 
 const FoodPostsPage = () => {
   const [foods, setFoods] = useState([]);
-
   useEffect(() => {
     void (async () => {
       const response = await getFoods();
