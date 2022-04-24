@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { deletePost } from 'src/apis/delete';
 import { getIngredients } from 'src/apis/post';
 import styles from './index.module.scss';
 import { PostCard } from './PostCard';
@@ -12,6 +13,14 @@ export const IngredientPosts = () => {
       setIngredients(response);
     })();
   }, []);
+
+  const callDeletePost = async (id) => {
+    const result = window.confirm('削除しますか？');
+    if (!result) return;
+    await deletePost(id);
+    const response = await getIngredients();
+    setIngredients(response);
+  };
 
   return (
     <>
@@ -29,7 +38,11 @@ export const IngredientPosts = () => {
               return 0;
             })
             .map((ingredient) => (
-              <PostCard key={ingredient.id} ingredient={ingredient} />
+              <PostCard
+                key={ingredient.id}
+                ingredient={ingredient}
+                deletePost={callDeletePost}
+              />
             ))}
         </div>
       </div>

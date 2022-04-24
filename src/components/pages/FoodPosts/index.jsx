@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { deletePost } from 'src/apis/delete';
 import { getFoods } from 'src/apis/post';
 import { FoodCard } from 'src/components/food/FoodCard/FoodCard';
 import styles from './index.module.scss';
@@ -11,6 +12,14 @@ const FoodPostsPage = () => {
       setFoods(response);
     })();
   }, []);
+
+  const callDeletePost = async (id) => {
+    const result = window.confirm('削除しますか？');
+    if (!result) return;
+    await deletePost(id);
+    const response = await getFoods();
+    setFoods(response);
+  };
 
   return (
     <div className={styles.page}>
@@ -27,7 +36,7 @@ const FoodPostsPage = () => {
             return 0;
           })
           .map((food) => (
-            <FoodCard key={food.id} {...food} />
+            <FoodCard key={food.id} deletePost={callDeletePost} {...food} />
           ))}
       </div>
     </div>

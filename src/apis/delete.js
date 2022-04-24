@@ -1,7 +1,7 @@
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from './config';
 
-export const deletePosts = async (id) => {
+export const deletePost = async (id) => {
   const targetDoc = 'posts';
   // 単一のドキュメントリファレンスを取得
   const docRef = doc(db, targetDoc, id);
@@ -9,7 +9,7 @@ export const deletePosts = async (id) => {
   await deleteDoc(docRef);
 };
 
-export const deleteFoods = async (id) => {
+export const deleteFood = async (id) => {
   const targetDoc = 'foods';
   // 単一のドキュメントリファレンスを取得
   const docRef = doc(db, targetDoc, id);

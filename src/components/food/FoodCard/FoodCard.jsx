@@ -1,6 +1,5 @@
 import styles from './index.module.scss';
-import { ReactComponent as CancelIconButton } from 'src/assets/svg/cancel 1.svg';
-import { deletePosts } from 'src/apis/delete';
+import { ReactComponent as DeleteIconButton } from 'src/assets/svg/cancel 1.svg';
 
 // yy/mm/ddでフォーマット
 const format = (date) => {
@@ -10,12 +9,6 @@ const format = (date) => {
   return `${y}/${m}/${d}`;
 };
 
-const handleClick = async (id) => {
-  const result = window.confirm('削除しますか？');
-  if (!result) return;
-  await deletePosts(id);
-};
-
 export const FoodCard = ({
   foodName,
   atDate,
@@ -23,6 +16,7 @@ export const FoodCard = ({
   ingredients,
   memo,
   id,
+  deletePost,
 }) => {
   return (
     <div className={styles.card}>
@@ -33,8 +27,8 @@ export const FoodCard = ({
         <div className={styles.title}>
           <span>{foodName}</span>
           <div className={styles.cancel_button}>
-            <CancelIconButton
-              onClick={() => handleClick(id)}
+            <DeleteIconButton
+              onClick={() => deletePost(id)}
               className={styles.cancel_button}
             />
           </div>
