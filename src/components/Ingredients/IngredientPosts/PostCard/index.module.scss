@@ -6,3 +6,19 @@
   background-color: #fff;
   box-shadow: 0 0 5px #ccc;
 }
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cancel_button {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  :hover {
+    box-shadow: 0 0 8px gray;
+    transition: 0.3s;
+  }
+}
