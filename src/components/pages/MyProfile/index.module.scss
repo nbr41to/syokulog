@@ -1,0 +1,71 @@
+.pageWrap {
+  .titleButton {
+    display: flex;
+    .title {
+      margin-right: 136px;
+      width: 144px;
+      height: 29px;
+      font-family: Arial;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 120%;
+      color: #000000;
+    }
+
+    .editButton {
+      padding: 5px;
+      width: 55px;
+      height: 30px;
+      background: #ffffff;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+    }
+  }
+
+  .profileBox {
+    display: flex;
+    margin-top: 21px;
+    .iconBox {
+      width: 119px;
+      height: 105px;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      border: 1px solid #000000;
+      img {
+        width: 119px;
+        height: 100px;
+      }
+    }
+
+    .nameIntroductionBox {
+      margin-left: 11px;
+      .name {
+        padding: 10px;
+        width: 216px;
+        height: 32px;
+        background: #ffffff;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        color: #a3a3a3;
+        font-family: Arial;
+        font-size: 18px;
+        border: 1px solid #a3a3a3;
+      }
+
+      .introduction {
+        margin-top: 6px;
+        padding: 10px;
+        width: 216px;
+        height: 67px;
+        background: #ffffff;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        color: #a3a3a3;
+        font-family: Arial;
+        font-size: 18px;
+      }
+    }
+  }
+}
