@@ -1,7 +1,12 @@
-import React from 'react';
+import styles from './index.module.scss';
+import { Search } from 'src/components/search/ingredients/Search';
 
-const IngredientsSearch = () => {
-  return <div>食材の検索</div>;
+const IngredientsSearchPage = () => {
+  return (
+    <div className={styles.ingredientsSearchPage}>
+      <Search />
+    </div>
+  );
 };
 
-export default IngredientsSearch;
+export default IngredientsSearchPage;
